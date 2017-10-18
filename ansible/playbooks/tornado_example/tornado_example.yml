@@ -1,0 +1,5 @@
+- hosts: examplehost
+  remote_user: ubuntu
+
+  roles:
+    - tornado_example

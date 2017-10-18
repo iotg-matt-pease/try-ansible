@@ -1,0 +1,23 @@
+---
+- block:
+  - name: Pull down tornado_example code
+    git:
+      repo: "https://github.com/iotg-matt-pease/tornado_example.git"
+      clone: yes
+      dest: /apps/tornado_example
+
+  - name: Install app python requirements
+    pip:
+      requirements=/apps/tornado_example/requirements.txt
+
+  - name: Copy tornado_example service
+    template:
+      src: tornado_example.service
+      dest: /etc/systemd/system/
+
+  - name: restart tornado_example service
+    systemd:
+      state: restarted
+      daemon_reload: yes
+      name: tornado_example
+    become: yes

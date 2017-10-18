@@ -1,0 +1,12 @@
+[Unit]
+Description=tornado_example service
+
+[Service]
+EnvironmentFile=/etc/environment
+Environment=PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=cpp
+Environment=PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION_VERSION=2
+ExecStart=/bin/bash -c 'python -u /apps/tornado_example/app.py'
+Type=simple
+
+[Install]
+WantedBy=multi-user.target

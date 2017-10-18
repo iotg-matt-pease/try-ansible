@@ -1,0 +1,7 @@
+- block:
+  - name: Export Message Variable
+    lineinfile:
+      path: /etc/environment
+      regexp: '^MESSAGE='
+      line: 'MESSAGE={{ MESSAGE }}'
+    become: yes
