@@ -5,3 +5,16 @@
       regexp: '^MESSAGE='
       line: 'MESSAGE={{ MESSAGE }}'
     become: yes
+
+  - name: Install python2
+    apt:
+      name: python
+      state: latest
+    become: yes
+
+  - name: Install pip
+    apt:
+      name: python-pip
+      state: latest
+      update_cache: yes
+    become: yes
